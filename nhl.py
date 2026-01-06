@@ -71,9 +71,9 @@ class NHL_Term():
 
     def daily_games(self, teams, games):
         count = 0
-        for team in range(0, len(games)-1):
+        for team in range(0, len(games["games"])):
             
-            print(f"GAME {team+1} OF {len(games)-1}\n") 
+            print(f"GAME {team+1} OF {len(games["games"])}\n") 
             print("--------------------------------------------------------")
             print("--------------------------------------------------------")
 
@@ -145,10 +145,11 @@ class NHL_Term():
             print(f"Current Status                     : {awayWins}-{awayLoss}-{awayOtLosses}")
             print(f"Standing Points                    : {awayPoints}")
             print(f"Season win rate                    : {awayWins/awayGamesPlayed*100:.2f}%")
-            print(f"Goals per Game                     : {awayGoals/awayGamesPlayed:.2f}")
 
             ## Sauced Corsi is my own algorithm for determining winner. YMMV
             print(f"Odds of winning (Sauced Corsi)(ML) : {(away_prob/prob_denom)*100:.2f}%")
+            print(f"American Odds                      : {((-100*((away_prob)/(1-away_prob))) if (away_prob/prob_denom) > .50 else (100*((1-away_prob)/(away_prob)))):.2f}")
+            print(f"Goals per Game                     : {awayGoals/awayGamesPlayed:.2f}")
 
             print("\n")
 
@@ -157,6 +158,7 @@ class NHL_Term():
             print(f"Standing Points                    : {homePoints}")
             print(f"Season win rate                    : {homeWins/homeGamesPlayed*100:.2f}%")
             print(f"Odds of winning (Sauced Corsi)(ML) : {(home_prob/prob_denom)*100:.2f}%")
+            print(f"American Odds                      : {((-100*((home_prob)/(1-home_prob)))if (home_prob/prob_denom) > .50 else (100*((1-home_prob)/(home_prob)))):.2f}")
             print(f"Goals per Game                     : {homeGoals/homeGamesPlayed:.2f}")
 
             print("\n")
@@ -179,6 +181,15 @@ class NHL_Term():
             print(f"Adj. expected Combined Goals Floor   (O): {(homeGoalsGAR + awayGoalsGAR) * (0.66):.2f}")
             print(f"Adj. expected Combined Goal Average  (A): {homeGoalsGAR + awayGoalsGAR:.2f}")
             print(f"Adj. expected Combined Goals Ceiling (U): {(homeGoalsGAR + awayGoalsGAR) * (1.33):.2f}")
+
+            print("Shooting Stats:")
+            print(f"Away: {away_team_code}")
+            print(f"Shots per game                     : {awaySOG}")
+            print(f"Goals per shot                     : {awayGoals/awaySOG}")
+
+            print(f"Home: {home_team_code}")
+            print(f"Shots per game                     : {homeSOG}")
+            print(f"Goals per shot                     : {homeGoals/homeSOG}")
             
             print("--------------------------------------------------------")
             print("--------------------------------------------------------")
@@ -456,4 +467,4 @@ class NHL_Term():
 ### DO NOT RUN THIS FILE DIRECTLY
 ### I mean you can but it won't be as nice as having everything together
 ### Unless you downloaded it from Github as NHL_Terminal
-#NHL_Term()
+NHL_Term()
