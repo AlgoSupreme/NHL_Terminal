@@ -16,7 +16,7 @@ class NHL_Term():
         self.command = 0
 
         # Create client which takes forever to load
-        self.client = NHLClient(debug=True)
+        self.client = NHLClient()
 
         # Placeholder for later usage
         self.teams = {}
@@ -456,4 +456,5 @@ class NHL_Term():
 ### DO NOT RUN THIS FILE DIRECTLY
 ### I mean you can but it won't be as nice as having everything together
 ### Unless you downloaded it from Github as NHL_Terminal
+
 NHL_Term()
