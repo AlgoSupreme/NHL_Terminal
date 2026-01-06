@@ -64,6 +64,8 @@ class NHL_Term():
                     self.player_stats(self.teams)
                 case "4":
                     pass
+                case "99":
+                    quit()
                 case _:           
                     print("Incorrect choice")
 
