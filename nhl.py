@@ -73,7 +73,7 @@ class NHL_Term():
         count = 0
         for team in range(0, len(games)-1):
             
-            print(f"GAME {team} OF {len(games)-1}\n") 
+            print(f"GAME {team+1} OF {len(games)-1}\n") 
             print("--------------------------------------------------------")
             print("--------------------------------------------------------")
 
@@ -456,5 +456,4 @@ class NHL_Term():
 ### DO NOT RUN THIS FILE DIRECTLY
 ### I mean you can but it won't be as nice as having everything together
 ### Unless you downloaded it from Github as NHL_Terminal
-
-NHL_Term()
+#NHL_Term()
