@@ -184,11 +184,11 @@ class NHL_Term():
 
             print("Shooting Stats:")
             print(f"Away: {away_team_code}")
-            print(f"Shots per game                     : {awaySOG}")
+            print(f"Shots per game                     : {awaySOG/awayGamesPlayed}")
             print(f"Goals per shot                     : {awayGoals/awaySOG}")
 
             print(f"Home: {home_team_code}")
-            print(f"Shots per game                     : {homeSOG}")
+            print(f"Shots per game                     : {homeSOG/homeGamesPlayed}")
             print(f"Goals per shot                     : {homeGoals/homeSOG}")
             
             print("--------------------------------------------------------")
